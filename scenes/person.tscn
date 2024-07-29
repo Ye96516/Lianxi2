@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8m5o8ukfn7v"]
+
+[ext_resource type="Script" path="res://scenes/person.gd" id="1_57eox"]
+[ext_resource type="Texture2D" uid="uid://rpbkghaevbpt" path="res://icon.svg" id="1_ymku6"]
+
+[node name="Person" type="Node2D"]
+script = ExtResource("1_57eox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ymku6")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -57.0
+offset_top = 70.0
+offset_right = -17.0
+offset_bottom = 93.0
+
+[node name="SayLabel" type="Label" parent="."]
+offset_left = -66.0
+offset_top = -191.0
+offset_right = 67.0
+offset_bottom = -68.0
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 1
+
+[node name="SayPopTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="SayPopTimer" to="." method="_on_say_pop_timer_timeout"]
